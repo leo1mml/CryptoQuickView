@@ -1,6 +1,5 @@
 import UIKit
 import Foundation
-import Foundation
 
 // Define a struct to represent the decoded response
 struct TradeData {

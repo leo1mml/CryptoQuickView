@@ -12,10 +12,9 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     
     init(fetchTickersUseCase: FetchTickersUseCase) {
         self.fetchTickersUseCase = fetchTickersUseCase
-        addSubscribers()
     }
     
-    private func addSubscribers() {
+    func startIntegration() {
         $searchText
             .debounce(for: 0.3, scheduler: RunLoop.main)
             .sink { [weak self] searchText in
@@ -57,7 +56,4 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     }
     
     private func showError(_ error: Error) {}
-    
-    func startIntegration() {
-    }
 }

@@ -19,7 +19,7 @@
 		8A045D962BA89D8700B8C909 /* CryptoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D952BA89D8700B8C909 /* CryptoListViewModel.swift */; };
 		8A045D982BA8A13000B8C909 /* CryptoListViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D972BA8A13000B8C909 /* CryptoListViewModelImpl.swift */; };
 		8A045D9C2BA8ADCE00B8C909 /* FetchTickersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D9B2BA8ADCE00B8C909 /* FetchTickersUseCase.swift */; };
-		8A045D9F2BA8AE4500B8C909 /* TickerValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D9E2BA8AE4500B8C909 /* TickerValue.swift */; };
+		8A045D9F2BA8AE4500B8C909 /* TradeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D9E2BA8AE4500B8C909 /* TradeData.swift */; };
 		8A045DA12BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045DA02BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift */; };
 		8A045DA42BA8C1F500B8C909 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045DA32BA8C1F500B8C909 /* RequestFactory.swift */; };
 		8A045DA62BA8C41600B8C909 /* BitfinexAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045DA52BA8C41600B8C909 /* BitfinexAPI.swift */; };
@@ -59,7 +59,7 @@
 		8A045D952BA89D8700B8C909 /* CryptoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModel.swift; sourceTree = "<group>"; };
 		8A045D972BA8A13000B8C909 /* CryptoListViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModelImpl.swift; sourceTree = "<group>"; };
 		8A045D9B2BA8ADCE00B8C909 /* FetchTickersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTickersUseCase.swift; sourceTree = "<group>"; };
-		8A045D9E2BA8AE4500B8C909 /* TickerValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerValue.swift; sourceTree = "<group>"; };
+		8A045D9E2BA8AE4500B8C909 /* TradeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeData.swift; sourceTree = "<group>"; };
 		8A045DA02BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTickersUseCaseImpl.swift; sourceTree = "<group>"; };
 		8A045DA32BA8C1F500B8C909 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		8A045DA52BA8C41600B8C909 /* BitfinexAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexAPI.swift; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 		8A045D9D2BA8AE3700B8C909 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8A045D9E2BA8AE4500B8C909 /* TickerValue.swift */,
+				8A045D9E2BA8AE4500B8C909 /* TradeData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -348,7 +348,7 @@
 				8A045DA92BA8C48B00B8C909 /* BitfinexRequestFactory.swift in Sources */,
 				8A045D962BA89D8700B8C909 /* CryptoListViewModel.swift in Sources */,
 				8A045DA62BA8C41600B8C909 /* BitfinexAPI.swift in Sources */,
-				8A045D9F2BA8AE4500B8C909 /* TickerValue.swift in Sources */,
+				8A045D9F2BA8AE4500B8C909 /* TradeData.swift in Sources */,
 				8A045D8E2BA89BCE00B8C909 /* CryptoListView.swift in Sources */,
 				8A045D9C2BA8ADCE00B8C909 /* FetchTickersUseCase.swift in Sources */,
 				8A045DA12BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift in Sources */,
