@@ -30,7 +30,7 @@ class CryptoListViewModelImpl: CryptoListViewModel {
                 case .finished:
                     return
                 case .failure(let error):
-                    self?.showError()
+                    self?.showError(error)
                 }
             } receiveValue: { [weak self] values in
                 self?.allItems = values.map { tradeData in
@@ -38,8 +38,8 @@ class CryptoListViewModelImpl: CryptoListViewModel {
                         title: tradeData.symbol,
                         subtitle: tradeData.symbol,
                         detailImage: "",
-                        text1: "\(tradeData.lastPrice)",
-                        text2: "\((tradeData.dailyChangePercentage * 100))"
+                        text1: "\(String(format: "%.3f", tradeData.lastPrice))",
+                        text2: "\((String(format: "%.2f", tradeData.dailyChangePercentage * 100)))"
                     )
                 }
             }
@@ -56,7 +56,7 @@ class CryptoListViewModelImpl: CryptoListViewModel {
         }
     }
     
-    private func showError() {}
+    private func showError(_ error: Error) {}
     
     func startIntegration() {
     }
