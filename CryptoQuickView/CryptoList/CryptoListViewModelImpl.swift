@@ -13,6 +13,10 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     var searchText: String = ""
     
     init() {
+        addSubscribers()
+    }
+    
+    private func addSubscribers() {
         $searchText
             .debounce(for: 0.3, scheduler: RunLoop.main)
             .sink { [weak self] searchText in
