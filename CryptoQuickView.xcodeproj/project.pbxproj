@@ -17,6 +17,8 @@
 		8A045D8E2BA89BCE00B8C909 /* CryptoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D8D2BA89BCE00B8C909 /* CryptoList.swift */; };
 		8A045D922BA89C4E00B8C909 /* CryptoListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D912BA89C4E00B8C909 /* CryptoListItemViewModel.swift */; };
 		8A045D942BA89CD500B8C909 /* CryptoListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D932BA89CD500B8C909 /* CryptoListItemView.swift */; };
+		8A045D962BA89D8700B8C909 /* CryptoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D952BA89D8700B8C909 /* CryptoListViewModel.swift */; };
+		8A045D982BA8A13000B8C909 /* CryptoListViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D972BA8A13000B8C909 /* CryptoListViewModelImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		8A045D8D2BA89BCE00B8C909 /* CryptoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoList.swift; sourceTree = "<group>"; };
 		8A045D912BA89C4E00B8C909 /* CryptoListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListItemViewModel.swift; sourceTree = "<group>"; };
 		8A045D932BA89CD500B8C909 /* CryptoListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListItemView.swift; sourceTree = "<group>"; };
+		8A045D952BA89D8700B8C909 /* CryptoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModel.swift; sourceTree = "<group>"; };
+		8A045D972BA8A13000B8C909 /* CryptoListViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModelImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,8 @@
 			children = (
 				8A045D8F2BA89BF000B8C909 /* CryptoListItem */,
 				8A045D8D2BA89BCE00B8C909 /* CryptoList.swift */,
+				8A045D952BA89D8700B8C909 /* CryptoListViewModel.swift */,
+				8A045D972BA8A13000B8C909 /* CryptoListViewModelImpl.swift */,
 			);
 			path = CryptoList;
 			sourceTree = "<group>";
@@ -283,8 +289,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A045D922BA89C4E00B8C909 /* CryptoListItemViewModel.swift in Sources */,
+				8A045D962BA89D8700B8C909 /* CryptoListViewModel.swift in Sources */,
 				8A045D8E2BA89BCE00B8C909 /* CryptoList.swift in Sources */,
 				8A045D652BA8950700B8C909 /* ContentView.swift in Sources */,
+				8A045D982BA8A13000B8C909 /* CryptoListViewModelImpl.swift in Sources */,
 				8A045D942BA89CD500B8C909 /* CryptoListItemView.swift in Sources */,
 				8A045D632BA8950700B8C909 /* CryptoQuickViewApp.swift in Sources */,
 			);

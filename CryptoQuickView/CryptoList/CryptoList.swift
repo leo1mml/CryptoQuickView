@@ -1,16 +1,12 @@
 import SwiftUI
 
-struct CryptoList: View {
-    @State private var searchText = ""
+struct CryptoList<ViewModel>: View where ViewModel: CryptoListViewModel {
     
-    var filteredItems: [CryptoListItemViewModel] {
-        if searchText.isEmpty {
-            return items
-        } else {
-            return items.filter {
-                $0.title.localizedCaseInsensitiveContains(searchText)
-            }
-        }
+    @ObservedObject
+    private var viewModel: ViewModel
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
     }
     
     var body: some View {
@@ -18,7 +14,7 @@ struct CryptoList: View {
             VStack {
                 ScrollView {
                     LazyVStack(spacing: 16) {
-                        ForEach(filteredItems, id: \.id) { item in
+                        ForEach(viewModel.shownItems, id: \.id) { item in
                             CryptoListItemView(item: item)
                         }
                     }
@@ -26,13 +22,7 @@ struct CryptoList: View {
                 }
             }
         }
-        .searchable(text: $searchText)
+        .searchable(text: $viewModel.searchText)
     }
-    
-    let items: [CryptoListItemViewModel] = [
-        CryptoListItemViewModel(title: "Item 1", subtitle: "Subtitle 1", detailImage: "image1", text1: "Text 1", text2: "Text 2"),
-        CryptoListItemViewModel(title: "Item 2", subtitle: "Subtitle 2", detailImage: "image2", text1: "Text 3", text2: "Text 4"),
-        // Add more items as needed
-    ]
 }
 
