@@ -19,6 +19,9 @@
 		8A045D942BA89CD500B8C909 /* CryptoListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D932BA89CD500B8C909 /* CryptoListItemView.swift */; };
 		8A045D962BA89D8700B8C909 /* CryptoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D952BA89D8700B8C909 /* CryptoListViewModel.swift */; };
 		8A045D982BA8A13000B8C909 /* CryptoListViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D972BA8A13000B8C909 /* CryptoListViewModelImpl.swift */; };
+		8A045D9C2BA8ADCE00B8C909 /* FetchTickersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D9B2BA8ADCE00B8C909 /* FetchTickersUseCase.swift */; };
+		8A045D9F2BA8AE4500B8C909 /* TickerValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D9E2BA8AE4500B8C909 /* TickerValue.swift */; };
+		8A045DA12BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045DA02BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		8A045D932BA89CD500B8C909 /* CryptoListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListItemView.swift; sourceTree = "<group>"; };
 		8A045D952BA89D8700B8C909 /* CryptoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModel.swift; sourceTree = "<group>"; };
 		8A045D972BA8A13000B8C909 /* CryptoListViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModelImpl.swift; sourceTree = "<group>"; };
+		8A045D9B2BA8ADCE00B8C909 /* FetchTickersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTickersUseCase.swift; sourceTree = "<group>"; };
+		8A045D9E2BA8AE4500B8C909 /* TickerValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerValue.swift; sourceTree = "<group>"; };
+		8A045DA02BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTickersUseCaseImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 		8A045D612BA8950700B8C909 /* CryptoQuickView */ = {
 			isa = PBXGroup;
 			children = (
+				8A045D992BA8AD9700B8C909 /* UseCases */,
 				8A045D8C2BA89B7700B8C909 /* CryptoList */,
 				8A045D622BA8950700B8C909 /* CryptoQuickViewApp.swift */,
 				8A045D642BA8950700B8C909 /* ContentView.swift */,
@@ -156,6 +163,32 @@
 				8A045D932BA89CD500B8C909 /* CryptoListItemView.swift */,
 			);
 			path = CryptoListItem;
+			sourceTree = "<group>";
+		};
+		8A045D992BA8AD9700B8C909 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				8A045D9A2BA8AD9F00B8C909 /* FetchTickersUseCase */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		8A045D9A2BA8AD9F00B8C909 /* FetchTickersUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				8A045D9D2BA8AE3700B8C909 /* Model */,
+				8A045D9B2BA8ADCE00B8C909 /* FetchTickersUseCase.swift */,
+				8A045DA02BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift */,
+			);
+			path = FetchTickersUseCase;
+			sourceTree = "<group>";
+		};
+		8A045D9D2BA8AE3700B8C909 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8A045D9E2BA8AE4500B8C909 /* TickerValue.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,8 +323,11 @@
 			files = (
 				8A045D922BA89C4E00B8C909 /* CryptoListItemViewModel.swift in Sources */,
 				8A045D962BA89D8700B8C909 /* CryptoListViewModel.swift in Sources */,
+				8A045D9F2BA8AE4500B8C909 /* TickerValue.swift in Sources */,
 				8A045D8E2BA89BCE00B8C909 /* CryptoListView.swift in Sources */,
 				8A045D652BA8950700B8C909 /* ContentView.swift in Sources */,
+				8A045D9C2BA8ADCE00B8C909 /* FetchTickersUseCase.swift in Sources */,
+				8A045DA12BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift in Sources */,
 				8A045D982BA8A13000B8C909 /* CryptoListViewModelImpl.swift in Sources */,
 				8A045D942BA89CD500B8C909 /* CryptoListItemView.swift in Sources */,
 				8A045D632BA8950700B8C909 /* CryptoQuickViewApp.swift in Sources */,

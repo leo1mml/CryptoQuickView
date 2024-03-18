@@ -11,8 +11,10 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     var shownItems: [CryptoListItemViewModel] = []
     @Published
     var searchText: String = ""
+    let fetchTickersUseCase: FetchTickersUseCase
     
-    init() {
+    init(fetchTickersUseCase: FetchTickersUseCase) {
+        self.fetchTickersUseCase = fetchTickersUseCase
         addSubscribers()
     }
     

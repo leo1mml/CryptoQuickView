@@ -28,7 +28,6 @@ struct CryptoListItemView: View {
             }
         }
         .padding(8)
-        .background(Color.white)
         .cornerRadius(8)
         .shadow(radius: 2)
     }
