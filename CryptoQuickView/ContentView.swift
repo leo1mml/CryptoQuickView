@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        CryptoListView(viewModel: CryptoListViewModelImpl(fetchTickersUseCase: FetchTickersUseCaseImpl()))
+        CryptoListView(viewModel: CryptoListViewModelImpl(fetchTickersUseCase: ))
     }
 }
 

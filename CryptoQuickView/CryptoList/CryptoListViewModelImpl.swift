@@ -3,10 +3,7 @@ import Combine
 
 class CryptoListViewModelImpl: CryptoListViewModel {
     private var cancellables = Set<AnyCancellable>()
-    private var allItems: [CryptoListItemViewModel] = [
-        CryptoListItemViewModel(title: "Item 1", subtitle: "Subtitle 1", detailImage: "image1", text1: "Text 1", text2: "Text 2"),
-        CryptoListItemViewModel(title: "Item 2", subtitle: "Subtitle 2", detailImage: "image2", text1: "Text 3", text2: "Text 4"),
-    ]
+    private var allItems: [CryptoListItemViewModel] = []
     @Published
     var shownItems: [CryptoListItemViewModel] = []
     @Published
@@ -25,6 +22,28 @@ class CryptoListViewModelImpl: CryptoListViewModel {
                 self?.filterItems(searchText: searchText)
             }
             .store(in: &cancellables)
+        
+        fetchTickersUseCase.fetch()
+            .receive(on: RunLoop.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    return
+                case .failure(let error):
+                    self?.showError()
+                }
+            } receiveValue: { [weak self] values in
+                self?.allItems = values.map { tradeData in
+                    return CryptoListItemViewModel(
+                        title: tradeData.symbol,
+                        subtitle: tradeData.symbol,
+                        detailImage: "",
+                        text1: "\(tradeData.lastPrice)",
+                        text2: "\((tradeData.dailyChangePercentage * 100))"
+                    )
+                }
+            }
+            .store(in: &cancellables)
     }
     
     private func filterItems(searchText: String) {
@@ -36,6 +55,8 @@ class CryptoListViewModelImpl: CryptoListViewModel {
             }
         }
     }
+    
+    private func showError() {}
     
     func startIntegration() {
     }
