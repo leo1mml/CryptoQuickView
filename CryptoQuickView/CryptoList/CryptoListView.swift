@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CryptoList<ViewModel>: View where ViewModel: CryptoListViewModel {
+struct CryptoListView<ViewModel>: View where ViewModel: CryptoListViewModel {
     
     @ObservedObject
     private var viewModel: ViewModel
