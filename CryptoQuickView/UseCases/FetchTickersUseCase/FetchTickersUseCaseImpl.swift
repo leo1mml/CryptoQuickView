@@ -12,6 +12,7 @@ class FetchTickersUseCaseImpl: FetchTickersUseCase {
     func fetch() -> AnyPublisher<[TradeData], Error> {
         return URLSession.shared
             .dataTaskPublisher(for: request)
+            .timeout(5, scheduler: RunLoop.main)
             .tryMap { (data, response) in
                 guard let httpResponse = response as? HTTPURLResponse,
                       httpResponse.statusCode == 200 else {

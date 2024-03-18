@@ -23,6 +23,7 @@ struct CryptoListView<ViewModel>: View where ViewModel: CryptoListViewModel {
             }
         }
         .searchable(text: $viewModel.searchText)
+        .autocorrectionDisabled()
         .task {
             viewModel.startIntegration()
         }
