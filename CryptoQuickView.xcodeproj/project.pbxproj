@@ -24,6 +24,8 @@
 		8A045DA42BA8C1F500B8C909 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045DA32BA8C1F500B8C909 /* RequestFactory.swift */; };
 		8A045DA62BA8C41600B8C909 /* BitfinexAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045DA52BA8C41600B8C909 /* BitfinexAPI.swift */; };
 		8A045DA92BA8C48B00B8C909 /* BitfinexRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045DA82BA8C48B00B8C909 /* BitfinexRequestFactory.swift */; };
+		8AE4C1CC2BA9D16D0029070A /* FormatTradeDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1CB2BA9D16D0029070A /* FormatTradeDataUseCase.swift */; };
+		8AE4C1CE2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1CD2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		8A045DA32BA8C1F500B8C909 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		8A045DA52BA8C41600B8C909 /* BitfinexAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexAPI.swift; sourceTree = "<group>"; };
 		8A045DA82BA8C48B00B8C909 /* BitfinexRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexRequestFactory.swift; sourceTree = "<group>"; };
+		8AE4C1CB2BA9D16D0029070A /* FormatTradeDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTradeDataUseCase.swift; sourceTree = "<group>"; };
+		8AE4C1CD2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTradeDataUseCaseImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 		8A045D992BA8AD9700B8C909 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				8AE4C1CA2BA9D1530029070A /* FormatTradeDataUseCase */,
 				8A045D9A2BA8AD9F00B8C909 /* FetchTickersUseCase */,
 			);
 			path = UseCases;
@@ -211,6 +216,15 @@
 				8A045DA82BA8C48B00B8C909 /* BitfinexRequestFactory.swift */,
 			);
 			path = RequestFactory;
+			sourceTree = "<group>";
+		};
+		8AE4C1CA2BA9D1530029070A /* FormatTradeDataUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				8AE4C1CB2BA9D16D0029070A /* FormatTradeDataUseCase.swift */,
+				8AE4C1CD2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift */,
+			);
+			path = FormatTradeDataUseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,11 +361,13 @@
 				8A045D922BA89C4E00B8C909 /* CryptoListItemViewModel.swift in Sources */,
 				8A045DA92BA8C48B00B8C909 /* BitfinexRequestFactory.swift in Sources */,
 				8A045D962BA89D8700B8C909 /* CryptoListViewModel.swift in Sources */,
+				8AE4C1CC2BA9D16D0029070A /* FormatTradeDataUseCase.swift in Sources */,
 				8A045DA62BA8C41600B8C909 /* BitfinexAPI.swift in Sources */,
 				8A045D9F2BA8AE4500B8C909 /* TradeData.swift in Sources */,
 				8A045D8E2BA89BCE00B8C909 /* CryptoListView.swift in Sources */,
 				8A045D9C2BA8ADCE00B8C909 /* FetchTickersUseCase.swift in Sources */,
 				8A045DA12BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift in Sources */,
+				8AE4C1CE2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift in Sources */,
 				8A045D982BA8A13000B8C909 /* CryptoListViewModelImpl.swift in Sources */,
 				8A045D942BA89CD500B8C909 /* CryptoListItemView.swift in Sources */,
 				8A045D632BA8950700B8C909 /* CryptoQuickViewApp.swift in Sources */,

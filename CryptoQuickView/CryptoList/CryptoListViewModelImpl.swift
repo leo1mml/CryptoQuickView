@@ -13,12 +13,14 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     private var cancellables = Set<AnyCancellable>()
     private var allItems: [CryptoListItemViewModel] = []
     private let fetchTickersUseCase: FetchTickersUseCase
+    private let formatTradeUseCase: FormatTradeDataUseCase
     private static let updateInterval: TimeInterval = 5
     private let timerPublisher = Timer
         .publish(every: updateInterval, on: .main, in: .default)
         .autoconnect()
     
-    init(fetchTickersUseCase: FetchTickersUseCase) {
+    init(fetchTickersUseCase: FetchTickersUseCase, formatTradeUseCase: FormatTradeDataUseCase) {
+        self.formatTradeUseCase = formatTradeUseCase
         self.fetchTickersUseCase = fetchTickersUseCase
     }
     
@@ -46,15 +48,7 @@ class CryptoListViewModelImpl: CryptoListViewModel {
                     guard let self = self else { return }
                     self.isLoading = false
                     self.errorMessage = ""
-                    let items = values.map { tradeData in
-                        return CryptoListItemViewModel(
-                            title: tradeData.symbol,
-                            subtitle: tradeData.symbol,
-                            detailImage: "",
-                            text1: "\(String(format: "%.2f", tradeData.lastPrice))",
-                            text2: "\((String(format: "%.2f", tradeData.dailyChangePercentage * 100)))"
-                        )
-                    }
+                    let items = values.map(formatTradeUseCase.format)
                     self.allItems = items
                     self.filterItems(searchText: self.searchText)
                 }
