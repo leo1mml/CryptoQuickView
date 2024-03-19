@@ -7,9 +7,10 @@ enum BitfinexAPI {
     
     enum Endpoints: String {
         case tickers
+        case labels = "conf/pub:map:currency:label"
     }
     
-    static func getURL(for endpoint: Endpoints, queryItems: [URLQueryItem]) -> URL {
+    static func getURL(for endpoint: Endpoints, queryItems: [URLQueryItem] = []) -> URL {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host

@@ -14,4 +14,9 @@ class BitfinexRequestFactory: RequestFactory {
         let urlRequest = URLRequest(url: url)
         return urlRequest
     }
+    
+    func createLabelsRequest() -> URLRequest {
+        let url = BitfinexAPI.getURL(for: .labels)
+        return URLRequest(url: url)
+    }
 }

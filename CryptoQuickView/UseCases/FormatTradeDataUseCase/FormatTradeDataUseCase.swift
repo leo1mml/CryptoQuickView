@@ -8,5 +8,5 @@
 import Foundation
 
 protocol FormatTradeDataUseCase {
-    func format(_ tradeData: TradeData) -> CryptoListItemViewModel
+    func format(_ tradeData: TradeData, using mappings: [SymbolMapping]) -> CryptoListItemViewModel
 }

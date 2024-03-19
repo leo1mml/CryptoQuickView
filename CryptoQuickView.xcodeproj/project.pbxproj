@@ -27,6 +27,9 @@
 		8AE4C1CC2BA9D16D0029070A /* FormatTradeDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1CB2BA9D16D0029070A /* FormatTradeDataUseCase.swift */; };
 		8AE4C1CE2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1CD2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift */; };
 		8AE4C1D02BA9DA550029070A /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1CF2BA9DA550029070A /* AppFactory.swift */; };
+		8AE4C1D42BA9E3360029070A /* FetchCurrencyLabelsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1D32BA9E3360029070A /* FetchCurrencyLabelsUseCase.swift */; };
+		8AE4C1D72BA9E4250029070A /* SymbolMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1D62BA9E4250029070A /* SymbolMapping.swift */; };
+		8AE4C1D92BA9E46E0029070A /* FetchCurrencyLabelUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1D82BA9E46E0029070A /* FetchCurrencyLabelUseCaseImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,10 @@
 		8AE4C1CB2BA9D16D0029070A /* FormatTradeDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTradeDataUseCase.swift; sourceTree = "<group>"; };
 		8AE4C1CD2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTradeDataUseCaseImpl.swift; sourceTree = "<group>"; };
 		8AE4C1CF2BA9DA550029070A /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
+		8AE4C1D12BA9E10E0029070A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8AE4C1D32BA9E3360029070A /* FetchCurrencyLabelsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrencyLabelsUseCase.swift; sourceTree = "<group>"; };
+		8AE4C1D62BA9E4250029070A /* SymbolMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolMapping.swift; sourceTree = "<group>"; };
+		8AE4C1D82BA9E46E0029070A /* FetchCurrencyLabelUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrencyLabelUseCaseImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +127,7 @@
 		8A045D612BA8950700B8C909 /* CryptoQuickView */ = {
 			isa = PBXGroup;
 			children = (
+				8AE4C1D12BA9E10E0029070A /* Info.plist */,
 				8A045DA22BA8C1E100B8C909 /* Network */,
 				8A045D992BA8AD9700B8C909 /* UseCases */,
 				8A045D8C2BA89B7700B8C909 /* CryptoList */,
@@ -179,6 +187,7 @@
 		8A045D992BA8AD9700B8C909 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				8AE4C1D22BA9E3160029070A /* FetchCurrencyLabelsUseCase */,
 				8AE4C1CA2BA9D1530029070A /* FormatTradeDataUseCase */,
 				8A045D9A2BA8AD9F00B8C909 /* FetchTickersUseCase */,
 			);
@@ -228,6 +237,24 @@
 				8AE4C1CD2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift */,
 			);
 			path = FormatTradeDataUseCase;
+			sourceTree = "<group>";
+		};
+		8AE4C1D22BA9E3160029070A /* FetchCurrencyLabelsUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				8AE4C1D52BA9E35B0029070A /* Model */,
+				8AE4C1D32BA9E3360029070A /* FetchCurrencyLabelsUseCase.swift */,
+				8AE4C1D82BA9E46E0029070A /* FetchCurrencyLabelUseCaseImpl.swift */,
+			);
+			path = FetchCurrencyLabelsUseCase;
+			sourceTree = "<group>";
+		};
+		8AE4C1D52BA9E35B0029070A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8AE4C1D62BA9E4250029070A /* SymbolMapping.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,12 +389,14 @@
 			files = (
 				8A045DA42BA8C1F500B8C909 /* RequestFactory.swift in Sources */,
 				8A045D922BA89C4E00B8C909 /* CryptoListItemViewModel.swift in Sources */,
+				8AE4C1D92BA9E46E0029070A /* FetchCurrencyLabelUseCaseImpl.swift in Sources */,
 				8A045DA92BA8C48B00B8C909 /* BitfinexRequestFactory.swift in Sources */,
 				8A045D962BA89D8700B8C909 /* CryptoListViewModel.swift in Sources */,
 				8AE4C1CC2BA9D16D0029070A /* FormatTradeDataUseCase.swift in Sources */,
 				8A045DA62BA8C41600B8C909 /* BitfinexAPI.swift in Sources */,
 				8A045D9F2BA8AE4500B8C909 /* TradeData.swift in Sources */,
 				8A045D8E2BA89BCE00B8C909 /* CryptoListView.swift in Sources */,
+				8AE4C1D42BA9E3360029070A /* FetchCurrencyLabelsUseCase.swift in Sources */,
 				8A045D9C2BA8ADCE00B8C909 /* FetchTickersUseCase.swift in Sources */,
 				8AE4C1D02BA9DA550029070A /* AppFactory.swift in Sources */,
 				8A045DA12BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift in Sources */,
@@ -375,6 +404,7 @@
 				8A045D982BA8A13000B8C909 /* CryptoListViewModelImpl.swift in Sources */,
 				8A045D942BA89CD500B8C909 /* CryptoListItemView.swift in Sources */,
 				8A045D632BA8950700B8C909 /* CryptoQuickViewApp.swift in Sources */,
+				8AE4C1D72BA9E4250029070A /* SymbolMapping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,9 +571,9 @@
 				DEVELOPMENT_TEAM = JC4QT73C9E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoQuickView/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -570,9 +600,9 @@
 				DEVELOPMENT_TEAM = JC4QT73C9E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoQuickView/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -13,13 +13,19 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     private var cancellables = Set<AnyCancellable>()
     private var allItems: [CryptoListItemViewModel] = []
     private let fetchTickersUseCase: FetchTickersUseCase
+    private let fetchLabelsUseCase: FetchCurrencyLabelsUseCase
     private let formatTradeUseCase: FormatTradeDataUseCase
     private static let updateInterval: TimeInterval = 5
     private let timerPublisher = Timer
         .publish(every: updateInterval, on: .main, in: .default)
         .autoconnect()
     
-    init(fetchTickersUseCase: FetchTickersUseCase, formatTradeUseCase: FormatTradeDataUseCase) {
+    init(
+        fetchTickersUseCase: FetchTickersUseCase,
+        fetchLabelsUseCase: FetchCurrencyLabelsUseCase,
+        formatTradeUseCase: FormatTradeDataUseCase
+    ) {
+        self.fetchLabelsUseCase = fetchLabelsUseCase
         self.formatTradeUseCase = formatTradeUseCase
         self.fetchTickersUseCase = fetchTickersUseCase
     }
@@ -49,6 +55,23 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     }
     
     private func setupDataFetch() {
+        fetchLabelsUseCase
+            .fetch()
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(_):
+                    break
+                }
+            } receiveValue: { [weak self] mappings in
+                self?.setupTimerPolling(using: mappings)
+            }
+            .store(in: &cancellables)
+
+    }
+    
+    private func setupTimerPolling(using mappings: [SymbolMapping]) {
         timerPublisher
             .flatMap { _ in
                 self.fetchTickersUseCase.fetch()
@@ -66,7 +89,9 @@ class CryptoListViewModelImpl: CryptoListViewModel {
                     guard let self = self else { return }
                     self.isLoading = false
                     self.errorMessage = ""
-                    let items = values.map(formatTradeUseCase.format)
+                    let items = values.map {
+                        self.formatTradeUseCase.format($0, using: mappings)
+                    }
                     self.allItems = items
                     self.filterItems(searchText: self.searchText)
                 }

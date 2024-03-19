@@ -8,12 +8,15 @@
 import Foundation
 
 class FormatTradeDataUseCaseImpl: FormatTradeDataUseCase {
-    func format(_ tradeData: TradeData) -> CryptoListItemViewModel {
+    func format(_ tradeData: TradeData, using mappings: [SymbolMapping]) -> CryptoListItemViewModel {
         let (lhs, rhs) = getTradingPairs(from: tradeData.symbol)
+        let title = mappings.first { mapping in
+            mapping.symbol == lhs
+        }?.fullName
         let currencySymbol = getFiatSymbol(forCurrencyCode: rhs) ?? ""
         return CryptoListItemViewModel(
-            title: lhs,
-            subtitle: rhs,
+            title: title ?? lhs,
+            subtitle: lhs,
             detailImage: "",
             text1: "\(String(format: "\(currencySymbol) %.2f", tradeData.lastPrice))",
             text2: "\((String(format: "%.2f", tradeData.dailyChangePercentage * 100)))"
