@@ -25,12 +25,30 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     }
     
     func startIntegration() {
+        setupSearch()
+        setupDataFetch()
+    }
+    
+    private func setupSearch() {
         $searchText
             .debounce(for: 0.3, scheduler: RunLoop.main)
             .sink { [weak self] searchText in
                 self?.filterItems(searchText: searchText)
             }
             .store(in: &cancellables)
+    }
+    
+    private func filterItems(searchText: String) {
+        if searchText.isEmpty {
+            shownItems = allItems
+        } else {
+            shownItems = allItems.filter {
+                $0.title.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
+    
+    private func setupDataFetch() {
         timerPublisher
             .flatMap { _ in
                 self.fetchTickersUseCase.fetch()
@@ -54,16 +72,6 @@ class CryptoListViewModelImpl: CryptoListViewModel {
                 }
             )
             .store(in: &cancellables)
-    }
-    
-    private func filterItems(searchText: String) {
-        if searchText.isEmpty {
-            shownItems = allItems
-        } else {
-            shownItems = allItems.filter {
-                $0.title.localizedCaseInsensitiveContains(searchText)
-            }
-        }
     }
     
     private func showError() {

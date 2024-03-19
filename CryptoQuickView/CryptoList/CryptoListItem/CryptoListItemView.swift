@@ -5,12 +5,6 @@ struct CryptoListItemView: View {
     
     var body: some View {
         HStack {
-            Image("bitcoin")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 50, height: 50)
-                .cornerRadius(8)
-            
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
                     .font(.headline)
@@ -24,6 +18,7 @@ struct CryptoListItemView: View {
                 Text(item.text1)
                     .font(.caption)
                 Text(item.text2)
+                    .foregroundStyle(Color.green)
                     .font(.caption)
             }
         }
