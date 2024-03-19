@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "FC47F3DB-55C0-4EFD-B5D1-490B362BC414",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:CryptoQuickView.xcodeproj",
+      "identifier" : "8A045D5E2BA8950700B8C909",
+      "name" : "CryptoQuickView"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CryptoQuickView.xcodeproj",
+        "identifier" : "8A045D6E2BA8950900B8C909",
+        "name" : "CryptoQuickViewTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CryptoQuickView.xcodeproj",
+        "identifier" : "8A045D782BA8950900B8C909",
+        "name" : "CryptoQuickViewUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

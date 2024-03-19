@@ -10,7 +10,6 @@
 		8A045D632BA8950700B8C909 /* CryptoQuickViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D622BA8950700B8C909 /* CryptoQuickViewApp.swift */; };
 		8A045D672BA8950900B8C909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A045D662BA8950900B8C909 /* Assets.xcassets */; };
 		8A045D6A2BA8950900B8C909 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A045D692BA8950900B8C909 /* Preview Assets.xcassets */; };
-		8A045D742BA8950900B8C909 /* CryptoQuickViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D732BA8950900B8C909 /* CryptoQuickViewTests.swift */; };
 		8A045D7E2BA8950900B8C909 /* CryptoQuickViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D7D2BA8950900B8C909 /* CryptoQuickViewUITests.swift */; };
 		8A045D802BA8950900B8C909 /* CryptoQuickViewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D7F2BA8950900B8C909 /* CryptoQuickViewUITestsLaunchTests.swift */; };
 		8A045D8E2BA89BCE00B8C909 /* CryptoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045D8D2BA89BCE00B8C909 /* CryptoListView.swift */; };
@@ -57,7 +56,6 @@
 		8A045D662BA8950900B8C909 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A045D692BA8950900B8C909 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8A045D6F2BA8950900B8C909 /* CryptoQuickViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoQuickViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A045D732BA8950900B8C909 /* CryptoQuickViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoQuickViewTests.swift; sourceTree = "<group>"; };
 		8A045D792BA8950900B8C909 /* CryptoQuickViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoQuickViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A045D7D2BA8950900B8C909 /* CryptoQuickViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoQuickViewUITests.swift; sourceTree = "<group>"; };
 		8A045D7F2BA8950900B8C909 /* CryptoQuickViewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoQuickViewUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -81,6 +79,7 @@
 		8AE4C1D82BA9E46E0029070A /* FetchCurrencyLabelUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrencyLabelUseCaseImpl.swift; sourceTree = "<group>"; };
 		8AE4C1DA2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTradeDataUseCaseImplTests.swift; sourceTree = "<group>"; };
 		8AE4C1DC2BA9F62C0029070A /* CryptoListViewModelImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModelImplTests.swift; sourceTree = "<group>"; };
+		8AE4C1DE2BAA0E3C0029070A /* CryptoQuickView.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CryptoQuickView.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +110,7 @@
 		8A045D562BA8950700B8C909 = {
 			isa = PBXGroup;
 			children = (
+				8AE4C1DE2BAA0E3C0029070A /* CryptoQuickView.xctestplan */,
 				8A045D612BA8950700B8C909 /* CryptoQuickView */,
 				8A045D722BA8950900B8C909 /* CryptoQuickViewTests */,
 				8A045D7C2BA8950900B8C909 /* CryptoQuickViewUITests */,
@@ -154,7 +154,6 @@
 		8A045D722BA8950900B8C909 /* CryptoQuickViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				8A045D732BA8950900B8C909 /* CryptoQuickViewTests.swift */,
 				8AE4C1DA2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift */,
 				8AE4C1DC2BA9F62C0029070A /* CryptoListViewModelImplTests.swift */,
 			);
@@ -418,7 +417,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A045D742BA8950900B8C909 /* CryptoQuickViewTests.swift in Sources */,
 				8AE4C1DB2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift in Sources */,
 				8AE4C1DD2BA9F62C0029070A /* CryptoListViewModelImplTests.swift in Sources */,
 			);
