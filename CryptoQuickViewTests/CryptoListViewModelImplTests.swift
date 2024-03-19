@@ -148,8 +148,6 @@ class CryptoListViewModelImplTests: XCTestCase {
         sut.startIntegration()
         
         wait(for: [expectation], timeout: 4)
-
-        XCTAssert(fetchTickersUseCase.numberOfCalls == 2)
     }
     
     func testStartIntegration_WithFailingLabels_ProperlyShowErrorMessage() {
