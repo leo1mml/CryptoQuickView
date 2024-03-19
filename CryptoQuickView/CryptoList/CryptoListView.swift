@@ -42,8 +42,7 @@ struct CryptoListView<ViewModel>: View where ViewModel: CryptoListViewModel {
             .task {
                 viewModel.startIntegration()
             }
-
-            }
+        }
     }
 }
 

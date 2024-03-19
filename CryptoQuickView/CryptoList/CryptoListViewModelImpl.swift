@@ -15,7 +15,6 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     private let fetchTickersUseCase: FetchTickersUseCase
     private let fetchLabelsUseCase: FetchCurrencyLabelsUseCase
     private let formatTradeUseCase: FormatTradeDataUseCase
-    private static var updateInterval: TimeInterval = 5
     private let timerPublisher: Publishers.Autoconnect<Timer.TimerPublisher>
     
     init(
@@ -27,7 +26,6 @@ class CryptoListViewModelImpl: CryptoListViewModel {
         self.fetchLabelsUseCase = fetchLabelsUseCase
         self.formatTradeUseCase = formatTradeUseCase
         self.fetchTickersUseCase = fetchTickersUseCase
-        Self.updateInterval = updateInterval
         self.timerPublisher = Timer
             .publish(every: updateInterval, on: .main, in: .default)
             .autoconnect()
@@ -37,8 +35,11 @@ class CryptoListViewModelImpl: CryptoListViewModel {
         setupSearch()
         setupDataFetch()
     }
+}
+
+private extension CryptoListViewModelImpl {
     
-    private func setupSearch() {
+    func setupSearch() {
         $searchText
             .debounce(for: 0.3, scheduler: RunLoop.main)
             .sink { [weak self] searchText in
@@ -47,17 +48,18 @@ class CryptoListViewModelImpl: CryptoListViewModel {
             .store(in: &cancellables)
     }
     
-    private func filterItems(searchText: String) {
+    func filterItems(searchText: String) {
         if searchText.isEmpty {
             shownItems = allItems
         } else {
             shownItems = allItems.filter {
-                $0.title.localizedCaseInsensitiveContains(searchText)
+                $0.title.localizedCaseInsensitiveContains(searchText) ||
+                $0.subtitle.localizedCaseInsensitiveContains(searchText)
             }
         }
     }
     
-    private func setupDataFetch() {
+    func setupDataFetch() {
         fetchLabelsUseCase
             .fetch()
             .sink { [weak self] completion in
@@ -77,7 +79,7 @@ class CryptoListViewModelImpl: CryptoListViewModel {
         
     }
     
-    private func setupTimerPolling(using mappings: [SymbolMapping]) {
+    func setupTimerPolling(using mappings: [SymbolMapping]) {
         let pub = timerPublisher
             .flatMap { _ in
                 self.fetchTickersUseCase.fetch()
@@ -86,7 +88,7 @@ class CryptoListViewModelImpl: CryptoListViewModel {
         sink(pub, with: mappings)
     }
     
-    private func sink(_ pub: AnyPublisher<[TradeData], Error>, with mappings: [SymbolMapping]) {
+    func sink(_ pub: AnyPublisher<[TradeData], Error>, with mappings: [SymbolMapping]) {
         pub.sink(
             receiveCompletion: { [weak self] completion in
                 switch completion {
@@ -111,7 +113,8 @@ class CryptoListViewModelImpl: CryptoListViewModel {
         .store(in: &cancellables)
     }
     
-    private func showError() {
+    func showError() {
+        // TODO: Make specific error handling
         errorMessage = "Something went wrong, lets try to connect again in a few seconds"
     }
 }
