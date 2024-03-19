@@ -9,24 +9,43 @@ struct CryptoListView<ViewModel>: View where ViewModel: CryptoListViewModel {
         self.viewModel = viewModel
     }
     
+    fileprivate func errorMessage() -> some View {
+        return HStack {
+            Spacer()
+            Text(viewModel.errorMessage)
+            Spacer()
+        }
+        .background(Color.red)
+        .foregroundColor(.white)
+    }
+    
     var body: some View {
         NavigationStack {
-            VStack {
-                ScrollView {
-                    LazyVStack(spacing: 16) {
-                        ForEach(viewModel.shownItems, id: \.id) { item in
-                            CryptoListItemView(item: item)
+            ZStack {
+                if viewModel.isLoading {
+                    ProgressView()
+                }
+                VStack {
+                    ScrollView {
+                        if !viewModel.errorMessage.isEmpty {
+                            errorMessage()
                         }
+                        LazyVStack(spacing: 16) {
+                            ForEach(viewModel.shownItems, id: \.id) { item in
+                                CryptoListItemView(item: item)
+                            }
+                        }
+                        .padding()
                     }
-                    .padding()
                 }
             }
-        }
-        .searchable(text: $viewModel.searchText)
-        .autocorrectionDisabled()
-        .task {
-            viewModel.startIntegration()
-        }
+            .searchable(text: $viewModel.searchText)
+            .autocorrectionDisabled()
+            .task {
+                viewModel.startIntegration()
+            }
+
+            }
     }
 }
 

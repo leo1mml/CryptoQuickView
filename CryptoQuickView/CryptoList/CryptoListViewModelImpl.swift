@@ -3,6 +3,10 @@ import Combine
 
 class CryptoListViewModelImpl: CryptoListViewModel {
     @Published
+    var isLoading: Bool = true
+    @Published
+    var errorMessage: String = ""
+    @Published
     var shownItems: [CryptoListItemViewModel] = []
     @Published
     var searchText: String = ""
@@ -30,17 +34,19 @@ class CryptoListViewModelImpl: CryptoListViewModel {
                 self.fetchTickersUseCase.fetch()
             }
             .sink(
-                receiveCompletion: { completion in
+                receiveCompletion: { [weak self] completion in
                     switch completion {
                     case .finished:
-                        print("Polling completed.")
-                    case .failure(let error):
-                        print("Polling error: \(error)")
+                        break
+                    case .failure(_):
+                        self?.showError()
                     }
                 },
                 receiveValue: { [weak self] values in
-                    print("Received")
-                    self?.allItems = values.map { tradeData in
+                    guard let self = self else { return }
+                    self.isLoading = false
+                    self.errorMessage = ""
+                    let items = values.map { tradeData in
                         return CryptoListItemViewModel(
                             title: tradeData.symbol,
                             subtitle: tradeData.symbol,
@@ -49,6 +55,8 @@ class CryptoListViewModelImpl: CryptoListViewModel {
                             text2: "\((String(format: "%.2f", tradeData.dailyChangePercentage * 100)))"
                         )
                     }
+                    self.allItems = items
+                    self.filterItems(searchText: self.searchText)
                 }
             )
             .store(in: &cancellables)
@@ -64,5 +72,7 @@ class CryptoListViewModelImpl: CryptoListViewModel {
         }
     }
     
-    private func showError(_ error: Error) {}
+    private func showError() {
+        errorMessage = "Something went wrong, lets try to connect again in a few seconds"
+    }
 }
