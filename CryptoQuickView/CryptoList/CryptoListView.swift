@@ -15,8 +15,6 @@ struct CryptoListView<ViewModel>: View where ViewModel: CryptoListViewModel {
             Text(viewModel.errorMessage)
             Spacer()
         }
-        .background(Color.red)
-        .foregroundColor(.white)
     }
     
     var body: some View {

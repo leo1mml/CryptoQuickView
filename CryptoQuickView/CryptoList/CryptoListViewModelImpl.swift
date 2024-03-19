@@ -15,19 +15,22 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     private let fetchTickersUseCase: FetchTickersUseCase
     private let fetchLabelsUseCase: FetchCurrencyLabelsUseCase
     private let formatTradeUseCase: FormatTradeDataUseCase
-    private static let updateInterval: TimeInterval = 5
-    private let timerPublisher = Timer
-        .publish(every: updateInterval, on: .main, in: .default)
-        .autoconnect()
+    private static var updateInterval: TimeInterval = 5
+    private let timerPublisher: Publishers.Autoconnect<Timer.TimerPublisher>
     
     init(
         fetchTickersUseCase: FetchTickersUseCase,
         fetchLabelsUseCase: FetchCurrencyLabelsUseCase,
-        formatTradeUseCase: FormatTradeDataUseCase
+        formatTradeUseCase: FormatTradeDataUseCase,
+        updateInterval: TimeInterval = 5
     ) {
         self.fetchLabelsUseCase = fetchLabelsUseCase
         self.formatTradeUseCase = formatTradeUseCase
         self.fetchTickersUseCase = fetchTickersUseCase
+        Self.updateInterval = updateInterval
+        self.timerPublisher = Timer
+            .publish(every: updateInterval, on: .main, in: .default)
+            .autoconnect()
     }
     
     func startIntegration() {
@@ -57,46 +60,55 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     private func setupDataFetch() {
         fetchLabelsUseCase
             .fetch()
-            .sink { completion in
+            .sink { [weak self] completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(_):
+                    self?.showError()
                     break
                 }
             } receiveValue: { [weak self] mappings in
-                self?.setupTimerPolling(using: mappings)
+                guard let self = self else { return }
+                self.sink(fetchTickersUseCase.fetch(), with: mappings)
+                self.setupTimerPolling(using: mappings)
             }
             .store(in: &cancellables)
-
+        
     }
     
     private func setupTimerPolling(using mappings: [SymbolMapping]) {
-        timerPublisher
+        let pub = timerPublisher
             .flatMap { _ in
                 self.fetchTickersUseCase.fetch()
             }
-            .sink(
-                receiveCompletion: { [weak self] completion in
-                    switch completion {
-                    case .finished:
-                        break
-                    case .failure(_):
-                        self?.showError()
-                    }
-                },
-                receiveValue: { [weak self] values in
-                    guard let self = self else { return }
-                    self.isLoading = false
-                    self.errorMessage = ""
-                    let items = values.map {
-                        self.formatTradeUseCase.format($0, using: mappings)
-                    }
-                    self.allItems = items
-                    self.filterItems(searchText: self.searchText)
+            .eraseToAnyPublisher()
+        sink(pub, with: mappings)
+    }
+    
+    private func sink(_ pub: AnyPublisher<[TradeData], Error>, with mappings: [SymbolMapping]) {
+        pub.sink(
+            receiveCompletion: { [weak self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(_):
+                    self?.showError()
+                    self?.setupTimerPolling(using: mappings)
                 }
-            )
-            .store(in: &cancellables)
+            },
+            receiveValue: { [weak self] values in
+                guard let self = self else { return }
+                self.isLoading = false
+                self.errorMessage = ""
+                let items = values.map {
+                    self.formatTradeUseCase.format($0, using: mappings)
+                }
+                self.allItems = items
+                self.filterItems(searchText: self.searchText)
+            }
+        )
+        .store(in: &cancellables)
     }
     
     private func showError() {

@@ -19,7 +19,7 @@ class FormatTradeDataUseCaseImpl: FormatTradeDataUseCase {
             subtitle: lhs,
             detailImage: "",
             text1: "\(String(format: "\(currencySymbol) %.2f", tradeData.lastPrice))",
-            text2: "\((String(format: "%.2f", tradeData.dailyChangePercentage * 100)))"
+            text2: "\((String(format: "%.2f", tradeData.dailyChangePercentage * 100)))%"
         )
     }
     

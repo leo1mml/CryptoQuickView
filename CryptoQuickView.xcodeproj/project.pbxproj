@@ -30,6 +30,8 @@
 		8AE4C1D42BA9E3360029070A /* FetchCurrencyLabelsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1D32BA9E3360029070A /* FetchCurrencyLabelsUseCase.swift */; };
 		8AE4C1D72BA9E4250029070A /* SymbolMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1D62BA9E4250029070A /* SymbolMapping.swift */; };
 		8AE4C1D92BA9E46E0029070A /* FetchCurrencyLabelUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1D82BA9E46E0029070A /* FetchCurrencyLabelUseCaseImpl.swift */; };
+		8AE4C1DB2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1DA2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift */; };
+		8AE4C1DD2BA9F62C0029070A /* CryptoListViewModelImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1DC2BA9F62C0029070A /* CryptoListViewModelImplTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		8AE4C1D32BA9E3360029070A /* FetchCurrencyLabelsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrencyLabelsUseCase.swift; sourceTree = "<group>"; };
 		8AE4C1D62BA9E4250029070A /* SymbolMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolMapping.swift; sourceTree = "<group>"; };
 		8AE4C1D82BA9E46E0029070A /* FetchCurrencyLabelUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrencyLabelUseCaseImpl.swift; sourceTree = "<group>"; };
+		8AE4C1DA2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTradeDataUseCaseImplTests.swift; sourceTree = "<group>"; };
+		8AE4C1DC2BA9F62C0029070A /* CryptoListViewModelImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModelImplTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				8A045D732BA8950900B8C909 /* CryptoQuickViewTests.swift */,
+				8AE4C1DA2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift */,
+				8AE4C1DC2BA9F62C0029070A /* CryptoListViewModelImplTests.swift */,
 			);
 			path = CryptoQuickViewTests;
 			sourceTree = "<group>";
@@ -413,6 +419,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A045D742BA8950900B8C909 /* CryptoQuickViewTests.swift in Sources */,
+				8AE4C1DB2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift in Sources */,
+				8AE4C1DD2BA9F62C0029070A /* CryptoListViewModelImplTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
