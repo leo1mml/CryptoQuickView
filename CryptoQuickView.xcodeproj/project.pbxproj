@@ -26,6 +26,7 @@
 		8A045DA92BA8C48B00B8C909 /* BitfinexRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A045DA82BA8C48B00B8C909 /* BitfinexRequestFactory.swift */; };
 		8AE4C1CC2BA9D16D0029070A /* FormatTradeDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1CB2BA9D16D0029070A /* FormatTradeDataUseCase.swift */; };
 		8AE4C1CE2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1CD2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift */; };
+		8AE4C1D02BA9DA550029070A /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1CF2BA9DA550029070A /* AppFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		8A045DA82BA8C48B00B8C909 /* BitfinexRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexRequestFactory.swift; sourceTree = "<group>"; };
 		8AE4C1CB2BA9D16D0029070A /* FormatTradeDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTradeDataUseCase.swift; sourceTree = "<group>"; };
 		8AE4C1CD2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTradeDataUseCaseImpl.swift; sourceTree = "<group>"; };
+		8AE4C1CF2BA9DA550029070A /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				8A045D992BA8AD9700B8C909 /* UseCases */,
 				8A045D8C2BA89B7700B8C909 /* CryptoList */,
 				8A045D622BA8950700B8C909 /* CryptoQuickViewApp.swift */,
+				8AE4C1CF2BA9DA550029070A /* AppFactory.swift */,
 				8A045D662BA8950900B8C909 /* Assets.xcassets */,
 				8A045D682BA8950900B8C909 /* Preview Content */,
 			);
@@ -366,6 +369,7 @@
 				8A045D9F2BA8AE4500B8C909 /* TradeData.swift in Sources */,
 				8A045D8E2BA89BCE00B8C909 /* CryptoListView.swift in Sources */,
 				8A045D9C2BA8ADCE00B8C909 /* FetchTickersUseCase.swift in Sources */,
+				8AE4C1D02BA9DA550029070A /* AppFactory.swift in Sources */,
 				8A045DA12BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift in Sources */,
 				8AE4C1CE2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift in Sources */,
 				8A045D982BA8A13000B8C909 /* CryptoListViewModelImpl.swift in Sources */,

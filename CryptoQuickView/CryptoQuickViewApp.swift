@@ -12,16 +12,8 @@ struct CryptoQuickViewApp: App {
     
     var body: some Scene {
         WindowGroup {
-            listView
+            AppFactory.listView
         }
     }
     
-    private var listView: some View {
-        let fetchTickersRequest = BitfinexRequestFactory().createTickersRequest(symbols: "tBTCUSD,tETHUSD,tCHSB:USD,tLTCUSD,tXRPUSD,tDSHUSD,tRRTUSD,t EOSUSD,tSANUSD,tDATUSD,tSNTUSD,tDOGE:USD,tLUNA:USD,tMATIC:USD,tNEXO :USD,tOCEAN:USD,tBEST:USD,tAAVE:USD,tPLUUSD,tFILUSD")
-        let fetchTickersUseCase = FetchTickersUseCaseImpl(request: fetchTickersRequest)
-        let formatTradeUseCase = FormatTradeDataUseCaseImpl()
-        let viewModel = CryptoListViewModelImpl(fetchTickersUseCase: fetchTickersUseCase, formatTradeUseCase: formatTradeUseCase)
-        let view = CryptoListView(viewModel: viewModel)
-        return view
-    }
 }
