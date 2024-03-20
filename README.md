@@ -1,6 +1,6 @@
 # QuickCryptoView
 
-QuickCryptoViewer is a simple app that allows you to quickly view the last prices for cryptocurrencies in USD.
+QuickCryptoView is a simple app that allows you to quickly view the last prices for cryptocurrencies in USD.
 
 ## Features
 
