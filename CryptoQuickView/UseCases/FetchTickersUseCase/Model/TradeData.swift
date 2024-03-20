@@ -1,7 +1,6 @@
 import UIKit
 import Foundation
 
-// Define a struct to represent the decoded response
 struct TradeData {
     let symbol: String
     let bid: Double
