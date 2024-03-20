@@ -11,8 +11,8 @@ QuickCryptoViewer is a simple app that allows you to quickly view the last price
 ## Screenshots
 
 <div style="display: flex; flex-direction: row;">
-  <img src="images/screenshot1.png" alt="Screenshot 1" width="400"/>
-  <img src="images/screenshot2.png" alt="Screenshot 2" width="400"/>
+  <img src="Prints/pic.png" alt="Screenshot 1" width="400" style="margin-right: 20px;"/>
+  <img src="Prints/pic1.png" alt="Screenshot 2" width="400"/>
 </div>
 
 ## Installation
