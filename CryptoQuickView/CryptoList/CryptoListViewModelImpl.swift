@@ -16,28 +16,46 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     private let fetchLabelsUseCase: FetchCurrencyLabelsUseCase
     private let formatTradeUseCase: FormatTradeDataUseCase
     private let timerPublisher: Publishers.Autoconnect<Timer.TimerPublisher>
-    
+    private let connectivityWatcher: ConnectivityWatcher
+
     init(
         fetchTickersUseCase: FetchTickersUseCase,
         fetchLabelsUseCase: FetchCurrencyLabelsUseCase,
         formatTradeUseCase: FormatTradeDataUseCase,
+        connectivityWatcher: ConnectivityWatcher,
         updateInterval: TimeInterval = 5
     ) {
         self.fetchLabelsUseCase = fetchLabelsUseCase
         self.formatTradeUseCase = formatTradeUseCase
         self.fetchTickersUseCase = fetchTickersUseCase
+        self.connectivityWatcher = connectivityWatcher
         self.timerPublisher = Timer
             .publish(every: updateInterval, on: .main, in: .default)
             .autoconnect()
     }
     
     func startIntegration() {
+        setupConnectivityWatcher()
         setupSearch()
         setupDataFetch()
     }
 }
 
 private extension CryptoListViewModelImpl {
+    
+    func setupConnectivityWatcher() {
+        connectivityWatcher.connectivityStatus
+            .receive(on: RunLoop.main)
+            .sink { [weak self] isConnected in
+                if !isConnected {
+                    self?.showError()
+                }
+            }
+            .store(in: &cancellables)
+
+        // Start monitoring connectivity
+        connectivityWatcher.start()
+    }
     
     func setupSearch() {
         $searchText
@@ -89,7 +107,9 @@ private extension CryptoListViewModelImpl {
     }
     
     func sink(_ pub: AnyPublisher<[TradeData], Error>, with mappings: [SymbolMapping]) {
-        pub.sink(
+        pub
+            .receive(on: RunLoop.main)
+            .sink(
             receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:

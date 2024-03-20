@@ -85,6 +85,7 @@ class CryptoListViewModelImplTests: XCTestCase {
         sut = CryptoListViewModelImpl(fetchTickersUseCase: fetchTickersUseCase,
                                       fetchLabelsUseCase: fetchLabelsUseCase,
                                       formatTradeUseCase: formatTradeUseCase,
+                                      connectivityWatcher: ConnectivityWatcherImpl(),
                                       updateInterval: 3)
     }
     

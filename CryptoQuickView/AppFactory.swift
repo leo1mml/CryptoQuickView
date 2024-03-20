@@ -20,7 +20,8 @@ class AppFactory {
         let viewModel = CryptoListViewModelImpl(
             fetchTickersUseCase: fetchTickersUseCase,
             fetchLabelsUseCase: fetchLabelsUseCase,
-            formatTradeUseCase: formatTradeUseCase
+            formatTradeUseCase: formatTradeUseCase,
+            connectivityWatcher: ConnectivityWatcherImpl()
         )
         let view = CryptoListView(viewModel: viewModel)
         return view

@@ -31,6 +31,8 @@
 		8AE4C1D92BA9E46E0029070A /* FetchCurrencyLabelUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1D82BA9E46E0029070A /* FetchCurrencyLabelUseCaseImpl.swift */; };
 		8AE4C1DB2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1DA2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift */; };
 		8AE4C1DD2BA9F62C0029070A /* CryptoListViewModelImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1DC2BA9F62C0029070A /* CryptoListViewModelImplTests.swift */; };
+		8AE4C1E02BAB10A40029070A /* ConnectivityWatcherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1DF2BAB10A40029070A /* ConnectivityWatcherImpl.swift */; };
+		8AE4C1E22BAB17420029070A /* ConnectivityWatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1E12BAB17420029070A /* ConnectivityWatcherTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		8AE4C1DA2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTradeDataUseCaseImplTests.swift; sourceTree = "<group>"; };
 		8AE4C1DC2BA9F62C0029070A /* CryptoListViewModelImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModelImplTests.swift; sourceTree = "<group>"; };
 		8AE4C1DE2BAA0E3C0029070A /* CryptoQuickView.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CryptoQuickView.xctestplan; sourceTree = "<group>"; };
+		8AE4C1DF2BAB10A40029070A /* ConnectivityWatcherImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityWatcherImpl.swift; sourceTree = "<group>"; };
+		8AE4C1E12BAB17420029070A /* ConnectivityWatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityWatcherTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,7 @@
 			children = (
 				8AE4C1DA2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift */,
 				8AE4C1DC2BA9F62C0029070A /* CryptoListViewModelImplTests.swift */,
+				8AE4C1E12BAB17420029070A /* ConnectivityWatcherTests.swift */,
 			);
 			path = CryptoQuickViewTests;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 			children = (
 				8A045DA72BA8C46C00B8C909 /* RequestFactory */,
 				8A045DA52BA8C41600B8C909 /* BitfinexAPI.swift */,
+				8AE4C1DF2BAB10A40029070A /* ConnectivityWatcherImpl.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				8AE4C1D42BA9E3360029070A /* FetchCurrencyLabelsUseCase.swift in Sources */,
 				8A045D9C2BA8ADCE00B8C909 /* FetchTickersUseCase.swift in Sources */,
 				8AE4C1D02BA9DA550029070A /* AppFactory.swift in Sources */,
+				8AE4C1E02BAB10A40029070A /* ConnectivityWatcherImpl.swift in Sources */,
 				8A045DA12BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift in Sources */,
 				8AE4C1CE2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift in Sources */,
 				8A045D982BA8A13000B8C909 /* CryptoListViewModelImpl.swift in Sources */,
@@ -417,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE4C1E22BAB17420029070A /* ConnectivityWatcherTests.swift in Sources */,
 				8AE4C1DB2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift in Sources */,
 				8AE4C1DD2BA9F62C0029070A /* CryptoListViewModelImplTests.swift in Sources */,
 			);
