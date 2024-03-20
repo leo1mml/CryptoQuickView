@@ -46,3 +46,10 @@ struct CryptoListView<ViewModel>: View where ViewModel: CryptoListViewModel {
     }
 }
 
+struct CryptoListView_Previews: PreviewProvider {
+    static var previews: some View {
+        return AppFactory.listView
+    }
+}
+
+
