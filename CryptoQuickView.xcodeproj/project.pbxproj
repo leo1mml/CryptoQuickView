@@ -33,6 +33,9 @@
 		8AE4C1DD2BA9F62C0029070A /* CryptoListViewModelImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1DC2BA9F62C0029070A /* CryptoListViewModelImplTests.swift */; };
 		8AE4C1E02BAB10A40029070A /* ConnectivityWatcherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1DF2BAB10A40029070A /* ConnectivityWatcherImpl.swift */; };
 		8AE4C1E22BAB17420029070A /* ConnectivityWatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1E12BAB17420029070A /* ConnectivityWatcherTests.swift */; };
+		8AE4C1E52BAB1D350029070A /* MockFetchTickersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1E42BAB1D350029070A /* MockFetchTickersUseCase.swift */; };
+		8AE4C1E72BAB1D720029070A /* MockFetchCurrencyLabelsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1E62BAB1D720029070A /* MockFetchCurrencyLabelsUseCase.swift */; };
+		8AE4C1E92BAB1D9E0029070A /* MockFormatTradeDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1E82BAB1D9E0029070A /* MockFormatTradeDataUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +87,9 @@
 		8AE4C1DE2BAA0E3C0029070A /* CryptoQuickView.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CryptoQuickView.xctestplan; sourceTree = "<group>"; };
 		8AE4C1DF2BAB10A40029070A /* ConnectivityWatcherImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityWatcherImpl.swift; sourceTree = "<group>"; };
 		8AE4C1E12BAB17420029070A /* ConnectivityWatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityWatcherTests.swift; sourceTree = "<group>"; };
+		8AE4C1E42BAB1D350029070A /* MockFetchTickersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFetchTickersUseCase.swift; sourceTree = "<group>"; };
+		8AE4C1E62BAB1D720029070A /* MockFetchCurrencyLabelsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFetchCurrencyLabelsUseCase.swift; sourceTree = "<group>"; };
+		8AE4C1E82BAB1D9E0029070A /* MockFormatTradeDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFormatTradeDataUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,7 @@
 		8A045D722BA8950900B8C909 /* CryptoQuickViewTests */ = {
 			isa = PBXGroup;
 			children = (
+				8AE4C1E32BAB1D1B0029070A /* Mocks */,
 				8AE4C1DA2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift */,
 				8AE4C1DC2BA9F62C0029070A /* CryptoListViewModelImplTests.swift */,
 				8AE4C1E12BAB17420029070A /* ConnectivityWatcherTests.swift */,
@@ -266,6 +273,16 @@
 				8AE4C1D62BA9E4250029070A /* SymbolMapping.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8AE4C1E32BAB1D1B0029070A /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8AE4C1E42BAB1D350029070A /* MockFetchTickersUseCase.swift */,
+				8AE4C1E62BAB1D720029070A /* MockFetchCurrencyLabelsUseCase.swift */,
+				8AE4C1E82BAB1D9E0029070A /* MockFormatTradeDataUseCase.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,8 +441,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE4C1E92BAB1D9E0029070A /* MockFormatTradeDataUseCase.swift in Sources */,
+				8AE4C1E72BAB1D720029070A /* MockFetchCurrencyLabelsUseCase.swift in Sources */,
 				8AE4C1E22BAB17420029070A /* ConnectivityWatcherTests.swift in Sources */,
 				8AE4C1DB2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift in Sources */,
+				8AE4C1E52BAB1D350029070A /* MockFetchTickersUseCase.swift in Sources */,
 				8AE4C1DD2BA9F62C0029070A /* CryptoListViewModelImplTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

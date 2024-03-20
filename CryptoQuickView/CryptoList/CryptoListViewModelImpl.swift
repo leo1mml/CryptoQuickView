@@ -17,6 +17,12 @@ class CryptoListViewModelImpl: CryptoListViewModel {
     private let formatTradeUseCase: FormatTradeDataUseCase
     private let timerPublisher: Publishers.Autoconnect<Timer.TimerPublisher>
     private let connectivityWatcher: ConnectivityWatcher
+    
+    enum CryptoListErrors: Error {
+        case NoNetwork
+        case FailedGettingLabels
+        case FailedGettingTickers
+    }
 
     init(
         fetchTickersUseCase: FetchTickersUseCase,
@@ -48,7 +54,7 @@ private extension CryptoListViewModelImpl {
             .receive(on: RunLoop.main)
             .sink { [weak self] isConnected in
                 if !isConnected {
-                    self?.showError()
+                    self?.show(error: .NoNetwork)
                 }
             }
             .store(in: &cancellables)
@@ -85,7 +91,7 @@ private extension CryptoListViewModelImpl {
                 case .finished:
                     break
                 case .failure(_):
-                    self?.showError()
+                    self?.show(error: .FailedGettingLabels)
                     break
                 }
             } receiveValue: { [weak self] mappings in
@@ -115,7 +121,7 @@ private extension CryptoListViewModelImpl {
                 case .finished:
                     break
                 case .failure(_):
-                    self?.showError()
+                    self?.show(error: .FailedGettingTickers)
                     self?.setupTimerPolling(using: mappings)
                 }
             },
@@ -133,8 +139,14 @@ private extension CryptoListViewModelImpl {
         .store(in: &cancellables)
     }
     
-    func showError() {
-        // TODO: Make specific error handling
-        errorMessage = "Something went wrong, lets try to connect again in a few seconds"
+    func show(error: CryptoListErrors) {
+        switch error {
+        case .NoNetwork:
+            errorMessage = "It seems you have no connection with the internet."
+        case .FailedGettingLabels:
+            errorMessage = "We were not able to get the initial data. Please try again later."
+        case .FailedGettingTickers:
+            errorMessage = "Something went wrong, lets try again in a few seconds"
+        }
     }
 }
