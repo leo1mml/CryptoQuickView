@@ -2,18 +2,27 @@ import SwiftUI
 
 struct CryptoListItemView: View {
     var item: CryptoListItemViewModel
-    
+    private var placeholder: some View {
+        Image("logo")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+    }
+
     var body: some View {
         HStack {
-            AsyncImage(url: BitfinexAPI.getImageURL(for: item.subtitle)) { image in
-                image.resizable()
-            } placeholder: {
-                Image("logo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
+            if let url = BitfinexAPI.getImageURL(for: item.subtitle) {
+                AsyncImage(url: url) { image in
+                    image.resizable()
+                } placeholder: {
+                    placeholder
+                }
+                .scaleEffect(0.8)
+                .frame(width: 50, height: 50)
+            } else {
+                placeholder
+                    .frame(width: 50, height: 50)
+                    .scaleEffect(0.8)
             }
-            .scaleEffect(0.5)
-            .frame(width: 50, height: 50)
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
                     .font(.headline)
