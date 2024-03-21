@@ -20,4 +20,8 @@ enum BitfinexAPI {
         components.queryItems = queryItems
         return components.url!
     }
+    
+    static func getImageURL(for symbol: String) -> URL {
+        return URL(string: "https://raw.githubusercontent.com/Cryptofonts/cryptoicons/master/64/\(symbol.lowercased()).png")!
+    }
 }

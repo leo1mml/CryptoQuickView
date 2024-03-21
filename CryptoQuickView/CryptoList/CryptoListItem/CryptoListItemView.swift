@@ -5,6 +5,11 @@ struct CryptoListItemView: View {
     
     var body: some View {
         HStack {
+            AsyncImage(url: BitfinexAPI.getImageURL(for: item.subtitle)) { image in
+                image.image?.resizable()
+            }
+            .scaleEffect(0.5)
+            .frame(width: 50, height: 50)
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
                     .font(.headline)
