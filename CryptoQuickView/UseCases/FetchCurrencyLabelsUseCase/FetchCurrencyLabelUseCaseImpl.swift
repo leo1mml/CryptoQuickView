@@ -11,20 +11,17 @@ import Combine
 class FetchCurrencyLabelUseCaseImpl: FetchCurrencyLabelsUseCase {
     
     private let request: URLRequest
-    
-    init(request: URLRequest) {
+    private let network: NetworkProtocol
+
+    init(request: URLRequest, network: NetworkProtocol) {
+        self.network = network
         self.request = request
     }
     
     func fetch() -> AnyPublisher<[SymbolMapping], Error> {
-        return URLSession.shared
-            .dataTaskPublisher(for: request)
+        return network.fetch(request: request)
             .timeout(5, scheduler: RunLoop.main)
-            .tryMap { (data, response) in
-                guard let httpResponse = response as? HTTPURLResponse,
-                      httpResponse.statusCode == 200 else {
-                    throw URLError(.badServerResponse)
-                }
+            .tryMap({ data in
                 do {
                     let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[[String]]]
                     if let jsonArray = jsonArray {
@@ -39,11 +36,11 @@ class FetchCurrencyLabelUseCaseImpl: FetchCurrencyLabelsUseCase {
                         }
                         return symbolMappings
                     }
-                    throw URLError(URLError.badServerResponse)
+                    throw NetworkError.other(error: URLError(.cannotDecodeContentData))
                 } catch {
                     throw error
                 }
-            }
+            })
             .eraseToAnyPublisher()
     }
 }

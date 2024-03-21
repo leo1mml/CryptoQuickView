@@ -36,6 +36,14 @@
 		8AE4C1E52BAB1D350029070A /* MockFetchTickersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1E42BAB1D350029070A /* MockFetchTickersUseCase.swift */; };
 		8AE4C1E72BAB1D720029070A /* MockFetchCurrencyLabelsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1E62BAB1D720029070A /* MockFetchCurrencyLabelsUseCase.swift */; };
 		8AE4C1E92BAB1D9E0029070A /* MockFormatTradeDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1E82BAB1D9E0029070A /* MockFormatTradeDataUseCase.swift */; };
+		8AE4C1EF2BABAC690029070A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1EE2BABAC690029070A /* Network.swift */; };
+		8AE4C1F12BABAC940029070A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1F02BABAC940029070A /* NetworkError.swift */; };
+		8AE4C1F32BABACBB0029070A /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1F22BABACBB0029070A /* NetworkProtocol.swift */; };
+		8AE4C1FC2BABAFA60029070A /* MockNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1FB2BABAFA60029070A /* MockNetwork.swift */; };
+		8AE4C1FE2BABB0070029070A /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1FD2BABB0070029070A /* NetworkTests.swift */; };
+		8AE4C2002BABB0E20029070A /* FetchCurrencyLabelsUsecaseImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C1FF2BABB0E20029070A /* FetchCurrencyLabelsUsecaseImplTests.swift */; };
+		8AE4C2022BABB1830029070A /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C2012BABB1830029070A /* MockURLProtocol.swift */; };
+		8AE4C2042BABB89E0029070A /* FetchTickersUseCaseImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE4C2032BABB89E0029070A /* FetchTickersUseCaseImplTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +98,14 @@
 		8AE4C1E42BAB1D350029070A /* MockFetchTickersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFetchTickersUseCase.swift; sourceTree = "<group>"; };
 		8AE4C1E62BAB1D720029070A /* MockFetchCurrencyLabelsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFetchCurrencyLabelsUseCase.swift; sourceTree = "<group>"; };
 		8AE4C1E82BAB1D9E0029070A /* MockFormatTradeDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFormatTradeDataUseCase.swift; sourceTree = "<group>"; };
+		8AE4C1EE2BABAC690029070A /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		8AE4C1F02BABAC940029070A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		8AE4C1F22BABACBB0029070A /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		8AE4C1FB2BABAFA60029070A /* MockNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetwork.swift; sourceTree = "<group>"; };
+		8AE4C1FD2BABB0070029070A /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		8AE4C1FF2BABB0E20029070A /* FetchCurrencyLabelsUsecaseImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrencyLabelsUsecaseImplTests.swift; sourceTree = "<group>"; };
+		8AE4C2012BABB1830029070A /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		8AE4C2032BABB89E0029070A /* FetchTickersUseCaseImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTickersUseCaseImplTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,9 +181,9 @@
 			isa = PBXGroup;
 			children = (
 				8AE4C1E32BAB1D1B0029070A /* Mocks */,
-				8AE4C1DA2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift */,
-				8AE4C1DC2BA9F62C0029070A /* CryptoListViewModelImplTests.swift */,
-				8AE4C1E12BAB17420029070A /* ConnectivityWatcherTests.swift */,
+				8AE4C1F82BABAEC20029070A /* Network */,
+				8AE4C1F72BABAEB30029070A /* CryptoList */,
+				8AE4C1F62BABAE9E0029070A /* UseCases */,
 			);
 			path = CryptoQuickViewTests;
 			sourceTree = "<group>";
@@ -232,9 +248,12 @@
 		8A045DA22BA8C1E100B8C909 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				8AE4C1F52BABACE70029070A /* API */,
+				8AE4C1F42BABACDC0029070A /* Connectivity */,
 				8A045DA72BA8C46C00B8C909 /* RequestFactory */,
-				8A045DA52BA8C41600B8C909 /* BitfinexAPI.swift */,
-				8AE4C1DF2BAB10A40029070A /* ConnectivityWatcherImpl.swift */,
+				8AE4C1EE2BABAC690029070A /* Network.swift */,
+				8AE4C1F02BABAC940029070A /* NetworkError.swift */,
+				8AE4C1F22BABACBB0029070A /* NetworkProtocol.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -281,8 +300,61 @@
 				8AE4C1E42BAB1D350029070A /* MockFetchTickersUseCase.swift */,
 				8AE4C1E62BAB1D720029070A /* MockFetchCurrencyLabelsUseCase.swift */,
 				8AE4C1E82BAB1D9E0029070A /* MockFormatTradeDataUseCase.swift */,
+				8AE4C1FB2BABAFA60029070A /* MockNetwork.swift */,
+				8AE4C2012BABB1830029070A /* MockURLProtocol.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		8AE4C1F42BABACDC0029070A /* Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				8AE4C1DF2BAB10A40029070A /* ConnectivityWatcherImpl.swift */,
+			);
+			path = Connectivity;
+			sourceTree = "<group>";
+		};
+		8AE4C1F52BABACE70029070A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8A045DA52BA8C41600B8C909 /* BitfinexAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		8AE4C1F62BABAE9E0029070A /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				8AE4C1DA2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift */,
+				8AE4C1FF2BABB0E20029070A /* FetchCurrencyLabelsUsecaseImplTests.swift */,
+				8AE4C2032BABB89E0029070A /* FetchTickersUseCaseImplTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		8AE4C1F72BABAEB30029070A /* CryptoList */ = {
+			isa = PBXGroup;
+			children = (
+				8AE4C1DC2BA9F62C0029070A /* CryptoListViewModelImplTests.swift */,
+			);
+			path = CryptoList;
+			sourceTree = "<group>";
+		};
+		8AE4C1F82BABAEC20029070A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8AE4C1F92BABAF200029070A /* Connectivity */,
+				8AE4C1FD2BABB0070029070A /* NetworkTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8AE4C1F92BABAF200029070A /* Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				8AE4C1E12BAB17420029070A /* ConnectivityWatcherTests.swift */,
+			);
+			path = Connectivity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,12 +495,15 @@
 				8AE4C1CC2BA9D16D0029070A /* FormatTradeDataUseCase.swift in Sources */,
 				8A045DA62BA8C41600B8C909 /* BitfinexAPI.swift in Sources */,
 				8A045D9F2BA8AE4500B8C909 /* TradeData.swift in Sources */,
+				8AE4C1F32BABACBB0029070A /* NetworkProtocol.swift in Sources */,
 				8A045D8E2BA89BCE00B8C909 /* CryptoListView.swift in Sources */,
 				8AE4C1D42BA9E3360029070A /* FetchCurrencyLabelsUseCase.swift in Sources */,
+				8AE4C1EF2BABAC690029070A /* Network.swift in Sources */,
 				8A045D9C2BA8ADCE00B8C909 /* FetchTickersUseCase.swift in Sources */,
 				8AE4C1D02BA9DA550029070A /* AppFactory.swift in Sources */,
 				8AE4C1E02BAB10A40029070A /* ConnectivityWatcherImpl.swift in Sources */,
 				8A045DA12BA8B1A300B8C909 /* FetchTickersUseCaseImpl.swift in Sources */,
+				8AE4C1F12BABAC940029070A /* NetworkError.swift in Sources */,
 				8AE4C1CE2BA9D1DB0029070A /* FormatTradeDataUseCaseImpl.swift in Sources */,
 				8A045D982BA8A13000B8C909 /* CryptoListViewModelImpl.swift in Sources */,
 				8A045D942BA89CD500B8C909 /* CryptoListItemView.swift in Sources */,
@@ -443,9 +518,14 @@
 			files = (
 				8AE4C1E92BAB1D9E0029070A /* MockFormatTradeDataUseCase.swift in Sources */,
 				8AE4C1E72BAB1D720029070A /* MockFetchCurrencyLabelsUseCase.swift in Sources */,
+				8AE4C1FE2BABB0070029070A /* NetworkTests.swift in Sources */,
 				8AE4C1E22BAB17420029070A /* ConnectivityWatcherTests.swift in Sources */,
 				8AE4C1DB2BA9F12F0029070A /* FormatTradeDataUseCaseImplTests.swift in Sources */,
+				8AE4C2002BABB0E20029070A /* FetchCurrencyLabelsUsecaseImplTests.swift in Sources */,
+				8AE4C1FC2BABAFA60029070A /* MockNetwork.swift in Sources */,
+				8AE4C2022BABB1830029070A /* MockURLProtocol.swift in Sources */,
 				8AE4C1E52BAB1D350029070A /* MockFetchTickersUseCase.swift in Sources */,
+				8AE4C2042BABB89E0029070A /* FetchTickersUseCaseImplTests.swift in Sources */,
 				8AE4C1DD2BA9F62C0029070A /* CryptoListViewModelImplTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

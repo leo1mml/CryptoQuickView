@@ -4,20 +4,17 @@ import Combine
 class FetchTickersUseCaseImpl: FetchTickersUseCase {
     
     private let request: URLRequest
-    
-    init(request: URLRequest) {
+    private let network: NetworkProtocol
+
+    init(request: URLRequest, network: NetworkProtocol) {
+        self.network = network
         self.request = request
     }
-    
+
     func fetch() -> AnyPublisher<[TradeData], Error> {
-        return URLSession.shared
-            .dataTaskPublisher(for: request)
+        return network.fetch(request: request)
             .timeout(5, scheduler: RunLoop.main)
-            .tryMap { (data, response) in
-                guard let httpResponse = response as? HTTPURLResponse,
-                      httpResponse.statusCode == 200 else {
-                    throw URLError(.badServerResponse)
-                }
+            .tryMap { data in
                 do {
                     let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[Any]]
                     if let jsonArray = jsonArray {
